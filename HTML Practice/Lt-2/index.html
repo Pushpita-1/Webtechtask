@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>University Form</title>
+
+    </head>
+    <body>
+        <h1>ONLINE ADMISSION FORM</h1>
+        <form method="POST">
+            <fieldset>
+                <legend>Personl Information</legend>
+        <label>NAME:</label>
+        <input type="text" name="fname" required maxlength="30"> 
+        <br>
+        <br>
+        <label>Email:</label>
+        <input type="email" name="email" required maxlength="50"> 
+        <br>
+        <br>
+        <label>Birth Date:</label>
+        <input type="date" name="dob" required> 
+        <br>
+        <br>
+        <label>Gender:</label>
+        <input type="radio" name="gender" required>
+        <label> Male</label> 
+        <input type="radio" name="gender" required>
+        <label> Female</label>
+        <br>
+        <br>
+        <label>Mobile NO:</label>
+        <input type="phone" name="no" required> 
+        <br>
+        <br>
+
+
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Academic Information</legend>
+
+            <label>Previous Institution:</label>
+            <input type="text"  name="school" maxlength="100" required>
+            <br>
+            <br>
+
+            <label>GPA/CGPA:</label>
+            <input type="text"name="gpa" required>
+            <br>
+            <br>
+
+            <label>Preferred Department:</label>
+            <select name="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science & Engineering</option>
+                <option value="EEE">Electrical & Electronic Engineering</option>
+                <option value="BBA">Business Administration</option>
+                <option value="English">English</option>
+            </select>
+<br>
+<br>
+<label>Interest in(Optional)</label><br>
+<input type="checkbox" id="programming" name="interest" value="Programming">
+            <label >Programming</label><br>
+
+            <input type="checkbox" id="research" name="interest" value="Research">
+            <label >Research</label><br>
+
+            <input type="checkbox" id="sports" name="interest" value="Sports">
+            <label >Sports</label><br>
+
+            <input type="checkbox" id="Others" name="others" value="others">
+            <label >Others</label>
+
+
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Upload Documents</legend>
+
+            <label>Upload Transcript:</label><br>
+            <input type="file"  name="transcript" required>
+            <br>
+            <br>
+
+            <label >Upload Photo:</label><br>
+            <input type="file" name="photo" required>
+        </fieldset>
+
+        <br>
+
+        <input type="submit">
+        <input type="reset" value="Reset">
+
+    <br>
+
+
+
+
+    </form>
+    </body>
+    
+</html>

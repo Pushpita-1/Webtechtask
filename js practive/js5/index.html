@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text Analysis Tool</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    text-align:center;
+}
+
+textarea{
+    width:500px;
+    height:150px;
+    padding:10px;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+}
+
+#result{
+    width:500px;
+    margin:auto;
+    border:2px solid black;
+    padding:15px;
+    text-align:left;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Text Analysis Tool</h2>
+
+<textarea id="text" placeholder="Enter your paragraph here"></textarea>
+
+<br><br>
+
+<button onclick="analyzeText()">Analyze Text</button>
+
+<div id="result"></div>
+
+<script>
+
+function analyzeText(){
+
+    let text = document.getElementById("text").value;
+
+    if(text== ""){
+        document.getElementById("result").innerHTML = "Please enter some text.";
+        return;
+    }
+
+    // Character Count
+    let characters = text.length;
+
+    // Word Count
+    let words = text.trim().split(/\s+/).length;
+
+    // Reverse Text
+    let reverse = text.split("").reverse().join("");
+
+    document.getElementById("result").innerHTML =
+    "<h3>Analysis Result</h3>" +
+    "<p><b>Total Characters:</b> " + characters + "</p>" +
+    "<p><b>Total Words:</b> " + words + "</p>" +
+    "<p><b>Reverse Text:</b> " + reverse + "</p>";
+
+}
+
+</script>
+
+</body>
+</html>

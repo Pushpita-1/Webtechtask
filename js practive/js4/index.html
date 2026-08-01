@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>student management system</title>
+    </head>
+<style>
+    table,tr,th,td{
+        border: 2px solid black;
+    }
+
+    table{
+    width:70%;
+    margin:auto;
+    border-collapse:collapse;
+}
+input{
+    
+    padding:8px;
+    margin:5px;
+}
+th,td{
+    padding:10px;
+}
+h1{
+    text-align: center;
+}
+
+
+.center{
+    text-align: center;
+}
+#i{
+    padding: 10px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+</style>
+
+    <body>
+        
+
+<h1>Student Management System</h1>
+
+<button id="btn" onclick="darkMode()">Dark Mode</button>
+<button id="tn" onclick="redMode()">Red Mode</button><br>
+<br>
+<br>
+
+
+
+
+<form >
+    <fieldset>
+        
+
+
+
+
+<input type="text" id="name" placeholder="Enter Name">
+<input type="text" id="roll" placeholder="Enter Roll">
+<input type="text" id="dep" placeholder="Enter Department">
+<br>
+<br>
+<button type="button" id="i" onclick="addStudent()">Add Student</button>
+</fieldset>
+
+</form>
+<br>
+<br>
+
+
+<table id="studenttable">
+
+    <tr>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Depertment</th>
+        <th>Action</th>
+        
+    </tr>
+
+</table>
+<br>
+<br>
+
+<img id="pic" src="#" alt="picture1"><br>
+<br>
+
+<button onclick="Previous()">Previous</button>
+<button onclick="Next()">Next</button>
+
+
+<script>
+let morepic = [
+"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
+"https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800",
+"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800"
+];
+let index=0;
+ function showf(){
+document.getElementById("pic").src=morepic[index];
+ }
+
+
+ function Next(){
+    index++;
+    if(index==morepic.length){
+        index=0;
+    }
+    showf();
+ }
+
+ function Previous(){
+    index--;
+    if(index<0){
+        index=morepic.length-1;
+    }
+    showf();
+
+ }
+
+
+
+
+
+
+let mode=false;
+
+function redMode(){
+    if(mode==false){
+        document.body.style.backgroundColor="Red";
+        document.getElementById("tn").innerText="Light mode";
+        mode=true;
+    }
+    
+    else{
+     document.body.style.backgroundColor="white";   
+     document.getElementById("tn").innerText="Red mode";
+     mode=false;
+    }
+}
+
+
+
+function darkMode(){
+
+    if(mode==false){
+        document.body.style.backgroundColor="black";
+        document.body.style.color="white";
+
+        let cells = document.querySelectorAll("table, th, td,tr");
+        cells.forEach(cell => {
+            cell.style.borderColor = "white";
+        });
+              document.getElementById("btn").innerText="Light mode";
+        mode = true;
+    }
+    else{
+        document.body.style.backgroundColor="white";
+        document.body.style.color="black";
+
+       let cells=document.querySelectorAll("table,th,td,tr");
+       cells.forEach(cell=>{
+        cell.style.borderColor="black";
+
+       });
+        document.getElementById("btn").innerText="Dark mode";
+
+        mode = false;
+    }
+}
+
+
+
+
+
+function addStudent(){
+
+    let name = document.getElementById("name").value;
+    let roll = document.getElementById("roll").value;
+    let dep = document.getElementById("dep").value;
+
+
+    if(name=="" || roll=="" || dep==""){
+        alert("please fill all the input form")
+
+        
+        return;
+        
+
+
+    }
+    if(isNaN(roll)){
+    alert("Roll must be a number.");
+    return;
+}
+   
+
+    let table = document.getElementById("studenttable");
+
+    let row = table.insertRow();
+
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+
+    cell1.innerText = name;
+    cell2.innerText = roll;
+    cell3.innerText = dep;
+    cell4.innerHTML = '<button  onclick="removee(this)">Remove</button>';
+
+    document.getElementById("name").value = "";
+    document.getElementById("roll").value = "";
+    document.getElementById("dep").value = "";
+}
+
+function removee(button){
+    let row = button.parentNode.parentNode;
+    row.remove();
+}
+
+
+    
+</script>
+
+
+
+    </body>
+</html>
